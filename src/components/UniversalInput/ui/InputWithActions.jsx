@@ -23,12 +23,12 @@ function InputWithActions({
   const initialAutoFocusRef = useRef(autoFocus);
   const wasEditedRef = useRef(false);
 
-  const handleCommit = nextValue => {
+  const handleValueChange = nextValue => {
     wasEditedRef.current = true;
     onChange?.(nextValue);
   };
 
-  const handleSetBlur = nextValue => {
+  const handleCommit = nextValue => {
     if (!wasEditedRef.current) return;
     wasEditedRef.current = false;
     onEndEditing?.(nextValue);
@@ -66,8 +66,8 @@ function InputWithActions({
           {...inputProps}
           type={type}
           inputRef={inputRef}
-          onValueChange={handleCommit}
-          onCommit={handleSetBlur}
+          onValueChange={handleValueChange}
+          onCommit={handleCommit}
           onKeyDown={handleKeyDown}
           readOnly={readOnly}
           autoFocus={autoFocus}

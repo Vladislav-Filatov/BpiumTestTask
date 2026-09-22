@@ -4,15 +4,14 @@ import cn from "classnames";
 import InputWithActions from "./InputWithActions.jsx";
 import styles from "../styles.module.css";
 
-function UniversalInput(
-  {
-    updateProcess,
-    eventable,
-    actions,
-    onEndEditing,
-    onChange,
-    ...props
-  }) {
+function UniversalInput({
+  updateProcess,
+  eventable,
+  actions,
+  onEndEditing,
+  onChange,
+  ...props
+}) {
   const [shouldProcess, setShouldProcess] = useState(false);
 
   const handleOnChange = value => {
@@ -48,4 +47,4 @@ function UniversalInput(
   );
 }
 
-export default UniversalInput
+export default UniversalInput;
